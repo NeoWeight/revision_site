@@ -1,4 +1,61 @@
-{% extends "base.html" %}
+{% extends 'base/base.html' %}
+
+{% block colunms %}
+    <div class="col-md-12">
+{% endblock %}
+
 {% block content %}
-    <h1>About Page</h1>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="mb-4">About The Forum</h1>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="card-title">What is the purpose?</h3>
+          <p class="card-text">
+            This forum is a helpful resource for students and teachers who want to discuss various topics, but is mainly geared towards helping others with revision.
+          </p>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="card-title">Features</h3>
+          <ul class="list-group">
+            <li class="list-group-item">Discussion Forums: Explore different categories and join conversations on various topics.</li>
+            <li class="list-group-item">Resource Sharing: Contribute to the website by sharing resources you have made and helping others with revision.</li>
+            <li class="list-group-item">Community Support: Connect with fellow students and teachers for support and encouragement.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="card-title">How to Get Started</h3>
+          <ol class="list-group">
+            <li class="list-group-item">If you haven't alredy, create an Account: Joining our community is easy. Create an account to unlock full access to the forums, users without an account will still be able to view the forums, however will not be able to interact with any items. </li>
+            <li class="list-group-item">Introduce Yourself: Take a moment to introduce yourself to the community and share your goals.</li>
+            <li class="list-group-item">Explore and Contribute: Dive into discussions, explore different forums, and actively participate in the community.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <h3 class="card-title">Thank you for reading.</h3>
+            <p class="card-text">We hope you enjoy the forum.</p>
+            <img src="https://i1.sndcdn.com/avatars-tzLAvMgFjm7uyg7B-ZO69Pg-t500x500.jpg" alt="Square Image" class="img-fluid rounded mx-auto d-block" style="max-width: 200px; max-height: 200px;">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 {% endblock content %}
+
+{% block sidebar %}{% endblock %}

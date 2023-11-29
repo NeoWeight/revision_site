@@ -1,20 +1,19 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.shortcuts import render
 
 # Create your views here.
 
 posts = [
     {
-        'author': 'CoreyMS',
-        'title': 'Blog Post 1',
+        'author': 'Neo',
+        'title': 'Welcome to Revision Goat!',
         'content': 'First post content',
-        'date_posted': 'August 27, 2018'
+        'date_posted': 'November 29, 2023'
     },
     {
         'author': 'Jane Doe',
-        'title': 'Blog Post 2',
+        'title': 'Help me revise!!!',
         'content': 'Second post content',
-        'date_posted': 'August 28, 2018'
+        'date_posted': 'November 29, 2023'
     }
 ]
 
