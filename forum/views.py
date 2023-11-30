@@ -27,3 +27,6 @@ def home(request):
 
 def about(request):
     return render(request, 'forum/about.html', {'title': 'About'})
+
+def base(request):
+    return render(request, 'forum/base.html', {'title': 'About'})
