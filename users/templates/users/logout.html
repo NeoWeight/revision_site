@@ -1,0 +1,20 @@
+
+{% extends 'core/base.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+        <div class="content-section">
+                <fieldset class="form-group">
+                    <h2 class="text-center">You Have Been Logged Out!</h2>
+                </fieldset>
+                <div class="form-group">
+                    <div class="border-top pt-3 text-center">
+                        <small class="text-muted">
+                            <a href="{% url 'login' %}">Mog In Again</a>
+                        </small>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+{% endblock content %}
