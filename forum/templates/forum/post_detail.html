@@ -1,0 +1,22 @@
+{% extends "forum/base.html" %}
+
+{% block page_content %}
+
+<article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#">{{ post.author }}</a>
+                <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+                {% if post.author == user %}
+                <div>
+                    <a class="btn btn-secondary btm-sm mt-1 mb-1" href="{% url 'post-update' post.id %}">update</a>
+                    <a class="btn btn-danger btm-sm mt-1 mb-1" href="{% url 'post-delete' post.id %}">delete</a>
+                </div>
+                {% endif %}
+        </div>
+        <h2 class="article-title">{{ post.title }}</h2>
+        <p class="article-content">{{ post.content }}</p>
+    </div>
+</article>
+
+{% endblock page_content %}
