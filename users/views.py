@@ -20,9 +20,14 @@ def register(request):
 
 @login_required
 def profile(request):
-    return render(request, 'users/profile.html')
+    user = get_object_or_404(User, username=request.user.username)
+    context = {'user': user, 'posts': user.post_set.all()}
+    return render(request, 'users/profile.html', context)
 
 def profile_inspect(request, username):
+    if request.user.is_authenticated:
+        if request.user.username == username:
+            return redirect('profile') 
     user = get_object_or_404(User, username=username)
-    context = {'inspected_user': user}
+    context = {'user': user, 'posts': user.post_set.all()}
     return render(request, 'users/profile_inspect.html', context)

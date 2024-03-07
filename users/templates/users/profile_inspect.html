@@ -1,15 +1,69 @@
 {% extends 'core/base.html' %}
+
 {% block content %}
     <div class="content-section">
-    <div class="media">
-      <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-      <div class="media-body">
-        <h2 class="account-heading">{{ inspected_user.username }}</h2>
-        <p class="text-secondary">{{ inspected_user.email }}</p>
-        <p class="text-secondary">Joined {{ inspected_user.date_joined|date:"F d, Y" }}</p>
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ user.username }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+          <p class="text-secondary">Joined {{ user.date_joined|date:"F d, Y" }}</p>
+        </div>
       </div>
     </div>
-    <!-- FORM HERE -->
+
+    <div class="content-section">
+
+      <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Posts</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="resources-tab" data-toggle="tab" href="#resources" role="tab" aria-controls="resources" aria-selected="false">Resources</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="false">About Me</a>
+        </li>
+      </ul>
+
+      <div class="tab-content mt-3" id="myTabContent">
+        <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+          <h3>Recent Posts by {{ user.username }} </h3>
+          {% for post in posts|slice:":5" %}
+              <article class="media content-section">
+                  <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+                  <div class="media-body">
+                      <div class="article-metadata">
+                          <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+                              <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+                      </div>
+                      <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+                      <p class="article-content">{{ post.content }}</p>
+                  </div>
+              </article>
+          {% endfor %}
+
+          {% if posts|length == 0 %}
+            <p>{{ user.username }} has not made any posts yet.</p>
+          {% endif %}
+
+          {% if posts|length >= 5 %}
+          <div class="text-center">
+            <h2><a class="article-title" href="{% url 'user-posts' user.username %}">View More</a></h2>
+          </div>
+          {% endif %}
+
+        </div>
+        <div class="tab-pane fade" id="resources" role="tabpanel" aria-labelledby="resources-tab">
+            <h3>Resources</h3>
+            <p>This is where your revision resources will be displayed.</p>
+        </div>
+        <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab">
+            <h3>About Me</h3>
+            <p>This is where your information will be displayed.</p>
+        </div>
+    </div>
+
     </div>
 {% endblock content %}
 
