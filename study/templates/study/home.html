@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4 text-center custom-margin-top">Time to Study.</h1>
+
+<div class="row">
+
+  <div class="col col-md-6">
+    <div class="card mb-4">
+
+      <div class="card-body text-center">
+        <a href="{% url 'study-resources' %}"><button class="btn btn-outline-info" type="submit"><span class="h2">Revision Resources</span></button></a>
+      </div>
+
+      <div class="card-body">
+        <h3>
+          This is the Revision Resources section where you can create and use custom revision cards and quizzes.
+        </h3>
+      </div>
+        
+    </div>
+  </div>
+    
+  <div class="col col-md-6">
+    <div class="card mb-4">
+
+      <div class="card-body text-center">
+        <a href="{% url 'study-home' %}"><button class="btn btn-outline-info" type="submit"><span class="h2">My Classes</span></button></a>
+      </div>
+
+      <div class="card-body">
+        <h3>
+          This is the Class section where you can view the classes you are currently in, and access their resources.
+        </h3>
+      </div>
+          
+    </div>
+  </div>
+
+</div>
+
+{% endblock content %}
