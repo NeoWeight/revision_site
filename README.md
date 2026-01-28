@@ -39,7 +39,7 @@ The project was built to explore full-stack web development concepts including a
 
 ### Installation
 ```bash
-git clone https://github.com/your-username/revision-goat.git
+git clone https://github.com/NeoWeight/revision_site.git
 cd revision-goat
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
